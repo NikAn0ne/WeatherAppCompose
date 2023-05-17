@@ -19,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.example.weatherappcompose.screens.MainCard
 import com.example.weatherappcompose.ui.theme.WeatherAppComposeTheme
 import org.json.JSONObject
 
@@ -35,7 +36,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Minsk",this)
+                    MainCard()
+//                    Greeting("Minsk",this)
                 }
             }
         }
@@ -69,8 +71,8 @@ fun Greeting(name: String, context: Context) {
                 getResult(name,state, context)
             },
                 modifier = Modifier
-                .fillMaxWidth()
-                .padding(20.dp)) {
+                    .fillMaxWidth()
+                    .padding(20.dp)) {
                 Text(text = "Refresh")
 
             }
