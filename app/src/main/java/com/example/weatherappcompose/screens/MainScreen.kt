@@ -2,6 +2,7 @@ package com.example.weatherappcompose.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -17,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.weatherappcompose.R
+import com.example.weatherappcompose.data.WeatherModel
 import com.example.weatherappcompose.ui.theme.SkyBlue
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
@@ -175,8 +177,31 @@ fun TabLayout() {
 
 
             LazyColumn(modifier = Modifier.fillMaxSize()) {
-                items(count = 15){
-                    ListItem()
+                itemsIndexed(
+                    listOf(
+                        WeatherModel(
+                            "Minsk",
+                            "15:23",
+                            "24",
+                            "Sunny",
+                            "//cdn.weatherapi.com/weather/64x64/night/116.png",
+                            "",
+                            "",
+                            ""
+                        ),
+                        WeatherModel(
+                            "Minsk",
+                            "19/05/2023",
+                            "",
+                            "Sunny",
+                            "//cdn.weatherapi.com/weather/64x64/night/116.png",
+                            "24",
+                            "22",
+                            "sfljkhs"
+                        )
+                    )
+                ) { index, item ->
+                    ListItem(item)
                 }
 
             }
